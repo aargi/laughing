@@ -34,7 +34,7 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 .step:hover{background:#ECEAE4;color:#17171C}
 </style>
 </helmet>
-<div style="width: 1440px; height: 1880px; display: flex; background: #F6F5F1; overflow: hidden">
+<div style="width: 1440px; height: 2300px; display: flex; background: #F6F5F1; overflow: hidden">
 
 <nav aria-label="Principal" style="width: 256px; flex-shrink: 0; box-sizing: border-box; padding: 24px 16px; border-right: 1px solid #E4E2DC; background: #FBFAF7; display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; align-items: center; gap: 10px; padding: 0 10px">
@@ -100,6 +100,44 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 <button class="btn btn-sm btn-primary" type="button">Actualizar desde v6</button>
 </div>
 </div>
+
+<section aria-labelledby="radar-h" class="card" style="padding: 22px 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 id="radar-h" style="margin: 0; font-size: 17px; font-weight: 600">Cobertura frente al plan</h2>
+<span style="font-size: 13px; color: #5E5D66">La forma gris es el territorio que planeas ocupar; la índigo, lo que ya cubres con oportunidades. La distancia entre ambas es lo que falta.</span>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; font-size: 12px; color: #3F3E46; flex-shrink: 0">
+<span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #EFEDE8; border: 1.5px dashed #8E8A80; box-sizing: border-box"></span>Plan · topics definidos</span>
+<span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 14px; height: 14px; border-radius: 4px; background: #D7D5F2; border: 2px solid #3730A3; box-sizing: border-box"></span>Cobertura · con oportunidades</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+<sc-for list="{{radars}}" as="r" hint-placeholder-count="4">
+<div style="{{r.box}}">
+<div style="display: flex; flex-direction: column; gap: 3px">
+<span class="eyebrow">{{r.kind}}</span>
+<span style="font-size: 14px; font-weight: 600; line-height: 1.3; min-height: 36px">{{r.name}}</span>
+<div style="display: flex; align-items: baseline; gap: 6px"><span class="mono" style="font-size: 22px; font-weight: 600">{{r.pct}}%</span><span class="mono" style="font-size: 12px; color: #5E5D66">{{r.stat}}</span></div>
+</div>
+<div style="position: relative; width: 248px; height: 240px; align-self: center">
+<svg width="248" height="240" viewBox="0 0 248 240" aria-hidden="true" style="position: absolute; left: 0; top: 0">
+<path d="{{r.rings}}" fill="none" stroke="#E4E2DC" stroke-width="1"></path>
+<path d="{{r.spokes}}" fill="none" stroke="#E4E2DC" stroke-width="1"></path>
+<path d="{{r.plan}}" fill="#EFEDE8" fill-opacity="0.75" stroke="#8E8A80" stroke-width="1.5" stroke-dasharray="4 3" stroke-linejoin="round"></path>
+<path d="{{r.cov}}" fill="#3730A3" fill-opacity="0.2" stroke="#3730A3" stroke-width="2" stroke-linejoin="round"></path>
+<path d="{{r.planDots}}" fill="#FFFFFF" stroke="#8E8A80" stroke-width="1.5"></path>
+<path d="{{r.covDots}}" fill="#3730A3"></path>
+</svg>
+<sc-for list="{{r.labels}}" as="l" hint-placeholder-count="3">
+<div style="{{l.style}}" title="{{l.full}}"><span style="color: #17171C">{{l.name}}</span><br><span class="mono" style="{{l.countStyle}}">{{l.count}}</span></div>
+</sc-for>
+</div>
+<span style="font-size: 12px; line-height: 1.45; color: #3F3E46; border-top: 1px solid #EFEDE8; padding-top: 10px">{{r.note}}</span>
+</div>
+</sc-for>
+</div>
+</section>
 
 <section aria-label="Resumen" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
 
@@ -210,7 +248,7 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1880}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2300}}'>
 class Component extends DCLogic {
   renderVals() {
     var active = 1;
@@ -272,7 +310,78 @@ class Component extends DCLogic {
       var pct = Math.round(p.done / p.total * 100);
       return Object.assign({}, p, { prioChip: prioChip[p.prio], cov: p.done + ' / ' + p.total + ' · ' + pct + '%', bar: 'width:' + Math.max(pct, 0) + '%' });
     });
-    return { steps: steps, actions: actions, pillars: pillars };
+    function f(n) { return Math.round(n * 10) / 10; }
+    function radar(kind, name, axes, note, lead) {
+      var cx = 124, cy = 120, R = 58, LR = 72, n = axes.length;
+      var max = Math.max.apply(null, axes.map(function (a) { return a.plan; }).concat([1]));
+      var ang = axes.map(function (a, i) { return (-90 + 360 * i / n) * Math.PI / 180; });
+      function pt(i, v) { var r = R * v / max; return [f(cx + r * Math.cos(ang[i])), f(cy + r * Math.sin(ang[i]))]; }
+      function circle(x, y, r) { return 'M' + f(x - r) + ' ' + y + 'a' + r + ' ' + r + ' 0 1 0 ' + (2 * r) + ' 0a' + r + ' ' + r + ' 0 1 0 ' + (-2 * r) + ' 0'; }
+      function shape(key) {
+        var pts = axes.map(function (a, i) { return pt(i, a[key]); });
+        if (n === 1) return 'M' + cx + ' ' + cy + 'L' + pts[0].join(' ');
+        return 'M' + pts.map(function (p) { return p.join(' '); }).join('L') + (n > 2 ? 'Z' : '');
+      }
+      var rings = '';
+      for (var k = 1; k <= max; k++) {
+        if (n >= 3) {
+          rings += 'M' + axes.map(function (a, i) { var r = R * k / max; return f(cx + r * Math.cos(ang[i])) + ' ' + f(cy + r * Math.sin(ang[i])); }).join('L') + 'Z';
+        } else {
+          rings += circle(cx, cy, f(R * k / max));
+        }
+      }
+      var spokes = axes.map(function (a, i) { var e = pt(i, max); return 'M' + cx + ' ' + cy + 'L' + e.join(' '); }).join('');
+      var planDots = axes.map(function (a, i) { var p = pt(i, a.plan); return a.plan > 0 ? circle(p[0], p[1], 3) : ''; }).join('');
+      var covDots = axes.map(function (a, i) { var p = pt(i, a.cov); return a.cov > 0 ? circle(p[0], p[1], 3.5) : ''; }).join('');
+      var labels = axes.map(function (a, i) {
+        var c = Math.cos(ang[i]), s = Math.sin(ang[i]);
+        var lx = cx + LR * c, ly = cy + LR * s;
+        var base = 'position:absolute;font-size:11px;line-height:1.3;';
+        var pos;
+        if (c > 0.35) pos = 'left:' + f(lx - 4) + 'px;width:' + f(248 - lx + 4) + 'px;text-align:left;';
+        else if (c < -0.35) pos = 'left:0;width:' + f(lx + 4) + 'px;text-align:right;';
+        else pos = 'left:' + f(Math.min(Math.max(lx - 56, 0), 136)) + 'px;width:112px;text-align:center;';
+        var vt = s < -0.35 ? 'top:' + f(ly) + 'px;transform:translateY(-100%);' : s > 0.35 ? 'top:' + f(ly) + 'px;' : 'top:' + f(ly) + 'px;transform:translateY(-50%);';
+        var empty = a.plan === 0;
+        return {
+          name: a.name, full: a.full || a.name,
+          count: empty ? 'sin topics' : a.cov + '/' + a.plan,
+          countStyle: 'font-size:11px;font-weight:600;color:' + (empty ? '#8A3F04' : a.cov > 0 ? '#3730A3' : '#5E5D66'),
+          style: base + pos + vt
+        };
+      });
+      var plan = axes.reduce(function (t, a) { return t + a.plan; }, 0);
+      var cov = axes.reduce(function (t, a) { return t + a.cov; }, 0);
+      return {
+        kind: kind, name: name, note: note, labels: labels, rings: rings, spokes: spokes,
+        plan: shape('plan'), cov: cov > 0 ? shape('cov') : '', planDots: planDots, covDots: covDots,
+        pct: Math.round(cov / plan * 100), stat: cov + ' / ' + plan + ' topics',
+        box: 'display:flex;flex-direction:column;gap:12px;padding:16px;border-radius:12px;min-width:0;' + (lead ? 'background:#F7F6FD;border:1px solid #C9C6F0' : 'background:#FBFAF7;border:1px solid #EFEDE8')
+      };
+    }
+    var radars = [
+      radar('Estrategia · por pilar', 'Visión global', [
+        { name: 'AI Rendering', full: 'AI Architectural Rendering', plan: 5, cov: 1 },
+        { name: 'Viz Workflows', full: 'Architectural Visualization Workflows', plan: 4, cov: 0 },
+        { name: 'Presentation', full: 'Architectural Presentation & Communication', plan: 2, cov: 0 }
+      ], 'Todo el peso está en AI Rendering. Visualization Workflows y Presentation siguen sin cubrir.', true),
+      radar('Pilar · por cluster', 'AI Architectural Rendering', [
+        { name: 'Photorealistic', full: 'Photorealistic AI Rendering', plan: 3, cov: 1 },
+        { name: 'Virtual staging', full: 'Virtual Staging and Space Optimization', plan: 2, cov: 0 },
+        { name: 'AI workflows', full: 'AI Rendering Workflows', plan: 0, cov: 0 }
+      ], 'Siguiente hueco: Virtual staging (0/2). AI workflows no tiene topics.'),
+      radar('Pilar · por cluster', 'Architectural Visualization Workflows', [
+        { name: 'CAD & BIM', full: 'CAD and BIM Modeling Pipeline Integration', plan: 2, cov: 0 },
+        { name: '2D drawings', full: '2D Drawing and Plan Transformation', plan: 2, cov: 0 },
+        { name: 'Test 1', plan: 0, cov: 0 },
+        { name: 'Test 2', plan: 0, cov: 0 },
+        { name: 'Test 3', plan: 0, cov: 0 }
+      ], 'Sin cobertura. Los 3 clusters de prueba deforman el radar: elimínalos o dales topics.'),
+      radar('Pilar · por cluster', 'Architectural Presentation & Communication', [
+        { name: 'Client concept', full: 'Client Concept Communication', plan: 2, cov: 0 }
+      ], 'Un único cluster: el radar se queda en una línea. Añade clusters para ampliar el territorio.')
+    ];
+    return { steps: steps, actions: actions, pillars: pillars, radars: radars };
   }
 }
 </script>
