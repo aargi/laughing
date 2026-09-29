@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>Context · Content OS</title>
@@ -37,7 +37,7 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 </helmet>
 <div style="width: 1440px; height: 1880px; display: flex; background: #F6F5F1; overflow: hidden">
 
-<nav aria-label="Principal" style="width: 256px; flex-shrink: 0; box-sizing: border-box; padding: 24px 16px; border-right: 1px solid #E4E2DC; background: #FBFAF7; display: flex; flex-direction: column; gap: 28px">
+<nav aria-label="Main" style="width: 256px; flex-shrink: 0; box-sizing: border-box; padding: 24px 16px; border-right: 1px solid #E4E2DC; background: #FBFAF7; display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; align-items: center; gap: 10px; padding: 0 10px">
 <div style="width: 28px; height: 28px; border-radius: 8px; background: #3730A3; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">C</div>
 <div style="display: flex; flex-direction: column">
@@ -46,12 +46,10 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 </div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 6px">
-<div class="eyebrow" style="padding: 0 10px 6px">Plan · tu recorrido</div>
+<div class="eyebrow" style="padding: 0 10px 6px">Plan · your journey</div>
 <sc-for list="{{steps}}" as="s" hint-placeholder-count="3">
 <a class="step" href="{{s.href}}" style="{{s.style}}">
-<div style="display: flex; flex-direction: column; align-items: center; gap: 4px">
 <div style="{{s.dot}}">{{s.n}}</div>
-</div>
 <div style="display: flex; flex-direction: column; gap: 3px; min-width: 0; flex-grow: 1">
 <span style="font-size: 13px; font-weight: 600">{{s.name}}</span>
 <span style="font-size: 12px; color: #5E5D66">{{s.meta}}</span>
@@ -78,30 +76,30 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 
 <header style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px">
 <div style="display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 12px; color: #5E5D66">Plan / Paso 1 de 3</span>
+<span style="font-size: 12px; color: #5E5D66">Plan / Step 1 of 3</span>
 <div style="display: flex; align-items: center; gap: 12px">
 <h1 style="margin: 0; font-size: 30px; font-weight: 600; letter-spacing: -0.02em">Context</h1>
-<span class="chip ok">Aprobado</span>
+<span class="chip ok">Approved</span>
 <span class="chip neutral mono">v6</span>
 </div>
-<p style="margin: 0; font-size: 14px; color: #5E5D66; max-width: 620px">Lo que Content OS sabe de tu negocio. Todo lo demás —estrategia, oportunidades, contenido— se genera a partir de aquí.</p>
+<p style="margin: 0; font-size: 14px; color: #5E5D66; max-width: 620px">What Content OS knows about your business. Everything else — strategy, opportunities, content — is generated from here.</p>
 </div>
 <div style="display: flex; gap: 8px">
-<button class="btn" type="button">Historial</button>
-<button class="btn" type="button">Ver contexto completo</button>
-<button class="btn btn-primary" type="button">Editar contexto</button>
+<button class="btn" type="button">History</button>
+<button class="btn" type="button">Full context</button>
+<button class="btn btn-primary" type="button">Edit context</button>
 </div>
 </header>
 
-<section aria-label="Resumen" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<section aria-label="Overview" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
 
 <div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 18px">
-<div style="display: flex; align-items: center; gap: 8px"><span class="chip neutral mono">01</span><span class="eyebrow">Dónde estás</span></div>
+<div style="display: flex; align-items: center; gap: 8px"><span class="chip neutral mono">01</span><span class="eyebrow">Where you are</span></div>
 <div style="display: flex; align-items: center; gap: 18px">
 <svg width="84" height="84" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="34" fill="none" stroke="#ECEAE4" stroke-width="10"></circle><circle cx="42" cy="42" r="34" fill="none" stroke="#3730A3" stroke-width="10" stroke-linecap="round" stroke-dasharray="164.5 213.6" transform="rotate(-90 42 42)"></circle></svg>
 <div style="display: flex; flex-direction: column; gap: 2px">
 <span class="mono" style="font-size: 40px; font-weight: 600; letter-spacing: -0.03em; line-height: 1">77%</span>
-<span style="font-size: 13px; color: #5E5D66">44 de 57 inputs completos</span>
+<span style="font-size: 13px; color: #5E5D66">44 of 57 inputs complete</span>
 </div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px">
@@ -116,29 +114,29 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 </div>
 
 <div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 16px">
-<div style="display: flex; align-items: center; gap: 8px"><span class="chip neutral mono">02</span><span class="eyebrow">Hacia dónde vas</span></div>
+<div style="display: flex; align-items: center; gap: 8px"><span class="chip neutral mono">02</span><span class="eyebrow">Where you're going</span></div>
 <div style="display: flex; flex-direction: column; gap: 4px">
-<span style="font-size: 18px; font-weight: 600">Contexto completo y respaldado</span>
-<span style="font-size: 13px; color: #5E5D66">100% de inputs · 8 de 8 fuentes de verdad · estrategia al día</span>
+<span style="font-size: 18px; font-weight: 600">Complete, evidence-backed context</span>
+<span style="font-size: 13px; color: #5E5D66">100% of inputs · 8 of 8 sources of truth · strategy up to date</span>
 </div>
 <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #EFEDE8">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid #EFEDE8; font-size: 13px">
-<span>Fuentes de verdad</span><span class="mono" style="color: #8A3F04; font-weight: 600">0 / 8</span>
+<span>Sources of truth</span><span class="mono" style="color: #8A3F04; font-weight: 600">0 / 8</span>
 </div>
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid #EFEDE8; font-size: 13px">
-<span>Inputs pendientes</span><span class="mono" style="font-weight: 600">13</span>
+<span>Pending inputs</span><span class="mono" style="font-weight: 600">13</span>
 </div>
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid #EFEDE8; font-size: 13px">
-<span>Capacidades sin caso de uso</span><span class="mono" style="font-weight: 600">2 / 3</span>
+<span>Capabilities without a use case</span><span class="mono" style="font-weight: 600">2 / 3</span>
 </div>
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; font-size: 13px">
-<span>Strategy usa una versión antigua</span><span class="chip warn mono">v3 → v6</span>
+<span>Strategy uses an older version</span><span class="chip warn mono">v3 → v6</span>
 </div>
 </div>
 </div>
 
 <div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 14px; border-color: #C9C6F0">
-<div style="display: flex; align-items: center; gap: 8px"><span class="chip accent mono">03</span><span class="eyebrow" style="color: #3730A3">Qué hacer ahora</span></div>
+<div style="display: flex; align-items: center; gap: 8px"><span class="chip accent mono">03</span><span class="eyebrow" style="color: #3730A3">What to do next</span></div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <sc-for list="{{actions}}" as="x" hint-placeholder-count="4">
 <div style="{{x.box}}">
@@ -158,20 +156,20 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 <section aria-labelledby="src-h" class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 18px">
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 4px">
-<h2 id="src-h" style="margin: 0; font-size: 17px; font-weight: 600">Fuentes de verdad <span class="mono" style="color: #8A3F04; font-weight: 500">0 / 8</span></h2>
-<span style="font-size: 13px; color: #5E5D66">Documentos que respaldan el contexto. Sin ellos, todo se apoya en lo que escribiste a mano.</span>
+<h2 id="src-h" style="margin: 0; font-size: 17px; font-weight: 600">Sources of truth <span class="mono" style="color: #8A3F04; font-weight: 500">0 / 8</span></h2>
+<span style="font-size: 13px; color: #5E5D66">Documents that back up your context. Without them, everything rests on what you typed by hand.</span>
 </div>
-<button class="btn btn-primary" type="button">Subir documentos</button>
+<button class="btn btn-primary" type="button">Upload documents</button>
 </div>
 <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
 <sc-for list="{{sources}}" as="s" hint-placeholder-count="8">
 <div style="border: 1px dashed #CFCBC1; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px; background: #FBFAF7">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
 <span style="font-size: 13px; font-weight: 600">{{s.name}}</span>
-<span class="chip warn">Falta</span>
+<span class="chip warn">Missing</span>
 </div>
 <span style="font-size: 12px; color: #5E5D66; line-height: 1.45; flex-grow: 1">{{s.desc}}</span>
-<button class="btn btn-sm" type="button" style="align-self: flex-start">Subir</button>
+<button class="btn btn-sm" type="button" style="align-self: flex-start">Upload</button>
 </div>
 </sc-for>
 </div>
@@ -180,12 +178,12 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 <section aria-labelledby="sec-h" class="card" style="display: flex; flex-direction: column">
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding: 24px 20px 16px">
 <div style="display: flex; flex-direction: column; gap: 4px">
-<h2 id="sec-h" style="margin: 0; font-size: 17px; font-weight: 600">Estado por sección</h2>
-<span style="font-size: 13px; color: #5E5D66">Qué tienes en cada parte del contexto y qué le falta.</span>
+<h2 id="sec-h" style="margin: 0; font-size: 17px; font-weight: 600">Status by section</h2>
+<span style="font-size: 13px; color: #5E5D66">What you have in each part of the context, and what it's missing.</span>
 </div>
-<button class="btn" type="button">Analizar todo el contexto</button>
+<button class="btn" type="button">Analyze full context</button>
 </div>
-<div class="row eyebrow" style="padding-top: 10px; padding-bottom: 10px; background: #FBFAF7"><span>Sección</span><span>Estado</span><span>Lo que tienes · lo que falta</span><span style="text-align: right">Acción</span></div>
+<div class="row eyebrow" style="padding-top: 10px; padding-bottom: 10px; background: #FBFAF7"><span>Section</span><span>Status</span><span>What you have · what's missing</span><span style="text-align: right">Action</span></div>
 <sc-for list="{{sections}}" as="r" hint-placeholder-count="7">
 <div class="row">
 <span style="font-weight: 600">{{r.name}}</span>
@@ -198,20 +196,20 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 
 <section aria-labelledby="bb-h" class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 18px">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
-<h2 id="bb-h" style="margin: 0; font-size: 17px; font-weight: 600">Business &amp; Brand · lo que ya está definido</h2>
-<span class="chip ok">Completo</span>
+<h2 id="bb-h" style="margin: 0; font-size: 17px; font-weight: 600">Business &amp; Brand · already defined</h2>
+<span class="chip ok">Complete</span>
 </div>
 <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding-bottom: 18px; border-bottom: 1px solid #EFEDE8">
-<div style="display: flex; flex-direction: column; gap: 4px"><span class="eyebrow">Marca</span><span style="font-size: 14px">ArchLife</span></div>
-<div style="display: flex; flex-direction: column; gap: 4px"><span class="eyebrow">Web</span><span style="font-size: 14px">https://archlife.io</span></div>
-<div style="display: flex; flex-direction: column; gap: 4px"><span class="eyebrow">Tipo</span><span style="font-size: 14px">B2B SaaS</span></div>
-<div style="display: flex; flex-direction: column; gap: 4px"><span class="eyebrow">Categoría</span><span style="font-size: 14px">AI Architectural Visualization Software</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span class="eyebrow">Brand</span><span style="font-size: 14px">ArchLife</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span class="eyebrow">Website</span><span style="font-size: 14px">https://archlife.io</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span class="eyebrow">Type</span><span style="font-size: 14px">B2B SaaS</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span class="eyebrow">Category</span><span style="font-size: 14px">AI Architectural Visualization Software</span></div>
 </div>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 32px">
-<div style="display: flex; flex-direction: column; gap: 6px"><span class="eyebrow">Qué hace</span><span style="font-size: 14px; line-height: 1.5">ArchLife is a browser-based AI platform that allows architects and designers to transform sketches, plans, and 3D screenshots into photorealistic architectural renders and staged imagery without complex prompting.</span></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><span class="eyebrow">Diferenciación</span><span style="font-size: 14px; line-height: 1.5">Prompt-free workflow using existing CAD/BIM files or sketches, browser-based operation, specialized architectural presets including material swapping, staging, and lighting control.</span></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><span class="eyebrow">Modelo de negocio</span><span style="font-size: 14px; line-height: 1.5">Freemium subscription model with tiered monthly plans (Basic, Pro, Studio) and credit packages.</span></div>
-<div style="display: flex; flex-direction: column; gap: 6px"><span class="eyebrow">Percepción buscada</span><span style="font-size: 14px; line-height: 1.5">A lightweight AI rendering assistant designed to complement existing modeling and visualization tools like SketchUp, Revit, Enscape, and Lumion.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="eyebrow">What it does</span><span style="font-size: 14px; line-height: 1.5">ArchLife is a browser-based AI platform that allows architects and designers to transform sketches, plans, and 3D screenshots into photorealistic architectural renders and staged imagery without complex prompting.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="eyebrow">Differentiation</span><span style="font-size: 14px; line-height: 1.5">Prompt-free workflow using existing CAD/BIM files or sketches, browser-based operation, specialized architectural presets including material swapping, staging, and lighting control.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="eyebrow">Business model</span><span style="font-size: 14px; line-height: 1.5">Freemium subscription model with tiered monthly plans (Basic, Pro, Studio) and credit packages.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="eyebrow">Desired perception</span><span style="font-size: 14px; line-height: 1.5">A lightweight AI rendering assistant designed to complement existing modeling and visualization tools like SketchUp, Revit, Enscape, and Lumion.</span></div>
 </div>
 </section>
 
@@ -223,15 +221,15 @@ class Component extends DCLogic {
   renderVals() {
     var active = 0;
     var stepsData = [
-      { n: '1', name: 'Context', meta: '77% · Aprobado v6', pct: 77, href: 'Main.dc.html', tone: 'ok' },
-      { n: '2', name: 'Strategy', meta: '9% cubierto · desactualizada', pct: 9, href: 'Strategy.dc.html', tone: 'warn' },
-      { n: '3', name: 'Opportunities', meta: '1 de 11 topics', pct: 9, href: 'Opportunities.dc.html', tone: 'neutral' }
+      { n: '1', name: 'Context', meta: '77% · Approved v6', pct: 77, href: 'Main.dc.html', tone: 'ok' },
+      { n: '2', name: 'Strategy', meta: '9% covered · outdated', pct: 9, href: 'Strategy.dc.html', tone: 'warn' },
+      { n: '3', name: 'Opportunities', meta: '1 of 11 topics', pct: 9, href: 'Opportunities.dc.html', tone: 'neutral' }
     ];
     var dotTone = { ok: 'background:#E6F2EA;color:#14532D', warn: 'background:#FCEFDD;color:#8A3F04', neutral: 'background:#EFEDE8;color:#3F3E46' };
     var steps = stepsData.map(function (s, i) {
       return Object.assign({}, s, {
         style: i === active ? 'background:#FFFFFF;box-shadow:0 0 0 1px #C9C6F0' : '',
-        dot: 'width:24px;height:24px;border-radius:99px;display:flex;align-items:center;justify-content:center;font:600 12px Geist Mono,monospace;' + dotTone[s.tone],
+        dot: 'width:24px;height:24px;flex-shrink:0;border-radius:99px;display:flex;align-items:center;justify-content:center;font:600 12px Geist Mono,monospace;' + dotTone[s.tone],
         bar: 'width:' + s.pct + '%;' + (s.tone === 'warn' ? 'background:#B45309' : '')
       });
     });
@@ -239,10 +237,10 @@ class Component extends DCLogic {
       return { name: a[0], pct: a[1], bar: 'width:' + a[1] + '%', pctStyle: 'text-align:right;font-size:12px;' + (a[1] === 0 ? 'color:#8A3F04;font-weight:600' : 'color:#3F3E46') };
     });
     var actions = [
-      { title: 'Sube tus fuentes de verdad', why: 'Sources está al 0%: es el mayor hueco del contexto.', cta: 'Subir', href: '#' },
-      { title: 'Añade casos de uso', why: 'Virtual Staging y Drawing Enhancer no tienen ninguno.', cta: 'Añadir', href: '#' },
-      { title: 'Completa Business', why: '84%: quedan inputs sin responder.', cta: 'Completar', href: '#' },
-      { title: 'Lleva v6 a la estrategia', why: 'Strategy sigue basada en Context v3.', cta: 'Actualizar', href: 'Strategy.dc.html' }
+      { title: 'Upload your sources of truth', why: 'Sources is at 0%: the biggest gap in your context.', cta: 'Upload', href: '#' },
+      { title: 'Add use cases', why: 'Virtual Staging and Drawing Enhancer have none.', cta: 'Add', href: '#' },
+      { title: 'Complete Business', why: '84%: some inputs are still unanswered.', cta: 'Complete', href: '#' },
+      { title: 'Bring v6 into your strategy', why: 'Strategy is still based on Context v3.', cta: 'Update', href: 'Strategy.dc.html' }
     ].map(function (x, i) {
       return Object.assign({}, x, {
         n: String(i + 1),
@@ -262,13 +260,13 @@ class Component extends DCLogic {
     ].map(function (s) { return { name: s[0], desc: s[1] }; });
     var chip = { done: 'chip ok', part: 'chip warn', todo: 'chip neutral' };
     var sections = [
-      { name: 'Business & Brand', s: 'done', status: 'Completo', detail: 'Marca, categoría, modelo de negocio, propuesta de valor y diferenciación definidos.', cta: 'Ver' },
-      { name: 'Products & Services', s: 'part', status: 'Parcial', detail: '1 producto · 3 capacidades · 1 caso de uso. Faltan casos de uso en 2 capacidades.', cta: 'Añadir caso de uso' },
-      { name: 'Customers', s: 'part', status: '1 perfil', detail: 'Architects and Visualizers. Añade un perfil por cada tipo de cliente que sirvas.', cta: 'Añadir perfil' },
-      { name: 'Brand language', s: 'done', status: 'Definido', detail: 'Tono y vocabulario preferido definidos.', cta: 'Ver' },
-      { name: 'Customer language', s: 'todo', status: 'Sin analizar', detail: 'Sin fuentes de voz de cliente que lo respalden.', cta: 'Analizar sección' },
-      { name: 'Knowledge & Proof', s: 'todo', status: 'Sin analizar', detail: 'Sin casos de estudio ni testimonios subidos.', cta: 'Analizar sección' },
-      { name: 'Business goals', s: 'todo', status: 'Sin analizar', detail: 'Objetivos de negocio que guían la estrategia.', cta: 'Analizar sección' }
+      { name: 'Business & Brand', s: 'done', status: 'Complete', detail: 'Brand, category, business model, value proposition and differentiation defined.', cta: 'View' },
+      { name: 'Products & Services', s: 'part', status: 'Partial', detail: '1 product · 3 capabilities · 1 use case. 2 capabilities have no use cases.', cta: 'Add use case' },
+      { name: 'Customers', s: 'part', status: '1 profile', detail: 'Architects and Visualizers. Add one profile per type of customer you serve.', cta: 'Add profile' },
+      { name: 'Brand language', s: 'done', status: 'Defined', detail: 'Tone and preferred vocabulary defined.', cta: 'View' },
+      { name: 'Customer language', s: 'todo', status: 'Not analyzed', detail: 'No voice-of-customer sources to back it up.', cta: 'Analyze section' },
+      { name: 'Knowledge & Proof', s: 'todo', status: 'Not analyzed', detail: 'No case studies or testimonials uploaded.', cta: 'Analyze section' },
+      { name: 'Business goals', s: 'todo', status: 'Not analyzed', detail: 'The business goals that steer the strategy.', cta: 'Analyze section' }
     ].map(function (r) { return Object.assign({}, r, { chip: chip[r.s] }); });
     return { steps: steps, areas: areas, actions: actions, sources: sources, sections: sections };
   }

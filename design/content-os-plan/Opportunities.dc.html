@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>Opportunities · Content OS</title>
@@ -38,7 +38,7 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 </helmet>
 <div style="width: 1440px; height: 1880px; display: flex; background: #F6F5F1; overflow: hidden">
 
-<nav aria-label="Principal" style="width: 256px; flex-shrink: 0; box-sizing: border-box; padding: 24px 16px; border-right: 1px solid #E4E2DC; background: #FBFAF7; display: flex; flex-direction: column; gap: 28px">
+<nav aria-label="Main" style="width: 256px; flex-shrink: 0; box-sizing: border-box; padding: 24px 16px; border-right: 1px solid #E4E2DC; background: #FBFAF7; display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; align-items: center; gap: 10px; padding: 0 10px">
 <div style="width: 28px; height: 28px; border-radius: 8px; background: #3730A3; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">C</div>
 <div style="display: flex; flex-direction: column">
@@ -47,7 +47,7 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 </div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 6px">
-<div class="eyebrow" style="padding: 0 10px 6px">Plan · tu recorrido</div>
+<div class="eyebrow" style="padding: 0 10px 6px">Plan · your journey</div>
 <sc-for list="{{steps}}" as="s" hint-placeholder-count="3">
 <a class="step" href="{{s.href}}" style="{{s.style}}">
 <div style="{{s.dot}}">{{s.n}}</div>
@@ -77,20 +77,20 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 
 <header style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px">
 <div style="display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 12px; color: #5E5D66">Plan / Paso 3 de 3</span>
+<span style="font-size: 12px; color: #5E5D66">Plan / Step 3 of 3</span>
 <div style="display: flex; align-items: center; gap: 12px">
 <h1 style="margin: 0; font-size: 30px; font-weight: 600; letter-spacing: -0.02em">Opportunities</h1>
-<span class="chip ok">Estrategia aprobada</span>
+<span class="chip ok">Approved strategy</span>
 </div>
-<p style="margin: 0; font-size: 14px; color: #5E5D66; max-width: 620px">Ideas concretas de contenido para cada topic. Aquí decides qué crear y por qué; los borradores viven en Create.</p>
+<p style="margin: 0; font-size: 14px; color: #5E5D66; max-width: 620px">Concrete content ideas for each topic. Decide here what to create and why; drafts live in Create.</p>
 </div>
 <div style="display: flex; gap: 8px">
-<button class="btn" type="button">+ Añadir oportunidad</button>
-<button class="btn btn-primary" type="button">Descubrir con IA</button>
+<button class="btn" type="button">+ Add opportunity</button>
+<button class="btn btn-primary" type="button">Discover with AI</button>
 </div>
 </header>
 
-<section aria-label="Embudo" class="card" style="padding: 20px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+<section aria-label="Funnel" class="card" style="padding: 20px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
 <sc-for list="{{funnel}}" as="f" hint-placeholder-count="4">
 <div style="{{f.box}}">
 <div style="display: flex; justify-content: space-between; align-items: center"><span class="eyebrow">{{f.label}}</span><span class="{{f.dropChip}}">{{f.drop}}</span></div>
@@ -101,36 +101,36 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 </sc-for>
 </section>
 
-<section aria-label="Resumen" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<section aria-label="Overview" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
 
 <div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 14px">
-<div style="display: flex; align-items: center; gap: 8px"><span class="chip neutral mono">01</span><span class="eyebrow">Dónde estás</span></div>
-<span style="font-size: 18px; font-weight: 600">1 oportunidad en backlog</span>
+<div style="display: flex; align-items: center; gap: 8px"><span class="chip neutral mono">01</span><span class="eyebrow">Where you are</span></div>
+<span style="font-size: 18px; font-weight: 600">1 opportunity in backlog</span>
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px; border-radius: 10px; background: #FBFAF7; border: 1px solid #EFEDE8">
 <div style="display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 13px; font-weight: 600">test</span>
 <span style="font-size: 12px; color: #5E5D66">Sketch to Render · Guide · EN</span>
 </div>
-<span class="chip neutral">Backlog · sin contenido</span>
+<span class="chip neutral">Backlog · no content</span>
 </div>
-<div style="display: flex; justify-content: space-between; font-size: 13px; padding-top: 4px"><span>Contenidos sin vincular a ninguna oportunidad</span><span class="mono" style="font-weight: 600">3</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; padding-top: 4px"><span>Content items not linked to any opportunity</span><span class="mono" style="font-weight: 600">3</span></div>
 </div>
 
 <div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 16px">
-<div style="display: flex; align-items: center; gap: 8px"><span class="chip neutral mono">02</span><span class="eyebrow">Hacia dónde vas</span></div>
+<div style="display: flex; align-items: center; gap: 8px"><span class="chip neutral mono">02</span><span class="eyebrow">Where you're going</span></div>
 <div style="display: flex; flex-direction: column; gap: 4px">
-<span style="font-size: 18px; font-weight: 600">Cada topic con contenido publicado</span>
-<span style="font-size: 13px; color: #5E5D66">11 / 11 topics con al menos una oportunidad que llegue a publicarse</span>
+<span style="font-size: 18px; font-weight: 600">Published content for every topic</span>
+<span style="font-size: 13px; color: #5E5D66">11 / 11 topics with at least one opportunity that gets published</span>
 </div>
 <div style="display: flex; flex-direction: column; border-top: 1px solid #EFEDE8">
-<div style="display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid #EFEDE8; font-size: 13px"><span>Topics de alta prioridad sin plan</span><span class="mono" style="color: #8A3F04; font-weight: 600">5</span></div>
-<div style="display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid #EFEDE8; font-size: 13px"><span>Topics de prioridad media sin plan</span><span class="mono" style="font-weight: 600">5</span></div>
-<div style="display: flex; justify-content: space-between; padding: 11px 0; font-size: 13px"><span>Oportunidades sin contenido</span><span class="mono" style="font-weight: 600">1</span></div>
+<div style="display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid #EFEDE8; font-size: 13px"><span>High-priority topics without a plan</span><span class="mono" style="color: #8A3F04; font-weight: 600">5</span></div>
+<div style="display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid #EFEDE8; font-size: 13px"><span>Medium-priority topics without a plan</span><span class="mono" style="font-weight: 600">5</span></div>
+<div style="display: flex; justify-content: space-between; padding: 11px 0; font-size: 13px"><span>Opportunities without content</span><span class="mono" style="font-weight: 600">1</span></div>
 </div>
 </div>
 
 <div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 14px; border-color: #C9C6F0">
-<div style="display: flex; align-items: center; gap: 8px"><span class="chip accent mono">03</span><span class="eyebrow" style="color: #3730A3">Qué hacer ahora</span></div>
+<div style="display: flex; align-items: center; gap: 8px"><span class="chip accent mono">03</span><span class="eyebrow" style="color: #3730A3">What to do next</span></div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <sc-for list="{{actions}}" as="x" hint-placeholder-count="3">
 <div style="{{x.box}}">
@@ -143,7 +143,7 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 </div>
 </sc-for>
 </div>
-<span style="font-size: 12px; color: #8A3F04">La estrategia se basa en Context v3; las sugerencias usarán Context v6. <a href="Strategy.dc.html" style="color: #8A3F04; text-decoration: underline">Actualizar estrategia</a></span>
+<span style="font-size: 12px; color: #8A3F04">The strategy is based on Context v3; suggestions will use Context v6. <a href="Strategy.dc.html" style="color: #8A3F04; text-decoration: underline">Update strategy</a></span>
 </div>
 
 </section>
@@ -151,21 +151,21 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 <section aria-labelledby="bl-h" class="card" style="display: flex; flex-direction: column">
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding: 22px 20px 16px">
 <div style="display: flex; flex-direction: column; gap: 4px">
-<h2 id="bl-h" style="margin: 0; font-size: 17px; font-weight: 600">Backlog por estrategia</h2>
+<h2 id="bl-h" style="margin: 0; font-size: 17px; font-weight: 600">Backlog by strategy</h2>
 <span style="font-size: 13px; color: #5E5D66">{{showing}}</span>
 </div>
 <div style="display: flex; align-items: center; gap: 12px">
-<div role="group" aria-label="Vista" style="display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: #EFEDE8">
-<button class="seg" type="button" onClick="{{showGaps}}" style="{{segGaps}}">Solo huecos</button>
-<button class="seg" type="button" onClick="{{showAll}}" style="{{segAll}}">Todo</button>
+<div role="group" aria-label="View" style="display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: #EFEDE8">
+<button class="seg" type="button" onClick="{{showGaps}}" style="{{segGaps}}">Gaps only</button>
+<button class="seg" type="button" onClick="{{showAll}}" style="{{segAll}}">All</button>
 </div>
-<button class="btn btn-sm" type="button">Filtros</button>
+<button class="btn btn-sm" type="button">Filters</button>
 </div>
 </div>
-<div class="trow eyebrow" style="background: #FBFAF7; padding-top: 10px; padding-bottom: 10px"><span>Topic</span><span>Prioridad</span><span>Progreso · oportunidad → contenido → publicado</span><span style="text-align: right">Acción</span></div>
+<div class="trow eyebrow" style="background: #FBFAF7; padding-top: 10px; padding-bottom: 10px"><span>Topic</span><span>Priority</span><span>Progress · opportunity → content → published</span><span style="text-align: right">Action</span></div>
 <sc-for list="{{pillars}}" as="p" hint-placeholder-count="3">
 <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-top: 1px solid #E4E2DC; background: #F8F7F3">
-<div style="display: flex; align-items: center; gap: 10px"><span class="eyebrow">Pilar</span><span style="font-size: 14px; font-weight: 600">{{p.name}}</span></div>
+<div style="display: flex; align-items: center; gap: 10px"><span class="eyebrow">Pillar</span><span style="font-size: 14px; font-weight: 600">{{p.name}}</span></div>
 <span class="mono" style="font-size: 12px; color: #5E5D66">{{p.cov}}</span>
 </div>
 <sc-for list="{{p.rows}}" as="r" hint-placeholder-count="3">
@@ -185,8 +185,8 @@ a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
 </sc-for>
 </sc-for>
 <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-top: 1px solid #E4E2DC; font-size: 13px">
-<span style="color: #3F3E46">3 contenidos no están vinculados a ninguna oportunidad.</span>
-<button class="btn btn-sm" type="button">Vincular contenidos</button>
+<span style="color: #3F3E46">3 content items are not linked to any opportunity.</span>
+<button class="btn btn-sm" type="button">Link content</button>
 </div>
 </section>
 
@@ -204,9 +204,9 @@ class Component extends DCLogic {
     var gapsOnly = this.state.gapsOnly;
     var active = 2;
     var stepsData = [
-      { n: '1', name: 'Context', meta: '77% · Aprobado v6', pct: 77, href: 'Main.dc.html', tone: 'ok' },
-      { n: '2', name: 'Strategy', meta: '9% cubierto · desactualizada', pct: 9, href: 'Strategy.dc.html', tone: 'warn' },
-      { n: '3', name: 'Opportunities', meta: '1 de 11 topics', pct: 9, href: 'Opportunities.dc.html', tone: 'neutral' }
+      { n: '1', name: 'Context', meta: '77% · Approved v6', pct: 77, href: 'Main.dc.html', tone: 'ok' },
+      { n: '2', name: 'Strategy', meta: '9% covered · outdated', pct: 9, href: 'Strategy.dc.html', tone: 'warn' },
+      { n: '3', name: 'Opportunities', meta: '1 of 11 topics', pct: 9, href: 'Opportunities.dc.html', tone: 'neutral' }
     ];
     var dotTone = { ok: 'background:#E6F2EA;color:#14532D', warn: 'background:#FCEFDD;color:#8A3F04', neutral: 'background:#EFEDE8;color:#3F3E46' };
     var steps = stepsData.map(function (s, i) {
@@ -217,10 +217,10 @@ class Component extends DCLogic {
       });
     });
     var funnel = [
-      { label: 'Topics', v: 11, drop: '', hint: 'Definidos en la estrategia' },
-      { label: 'Con oportunidad', v: 1, drop: '−10', hint: '10 topics sin idea de contenido' },
-      { label: 'Con contenido', v: 0, drop: '−1', hint: '“test” aún no tiene borrador' },
-      { label: 'Publicado', v: 0, drop: '', hint: 'Nada publicado todavía' }
+      { label: 'Topics', v: 11, drop: '', hint: 'Defined in the strategy' },
+      { label: 'With opportunity', v: 1, drop: '−10', hint: '10 topics without a content idea' },
+      { label: 'With content', v: 0, drop: '−1', hint: '“test” has no draft yet' },
+      { label: 'Published', v: 0, drop: '', hint: 'Nothing published yet' }
     ].map(function (f, i) {
       var pct = Math.round(f.v / 11 * 100);
       return Object.assign({}, f, {
@@ -231,9 +231,9 @@ class Component extends DCLogic {
       });
     });
     var actions = [
-      { title: 'Descubre oportunidades con IA', why: 'Para los 10 topics vacíos, empezando por los 5 de alta prioridad.', cta: 'Descubrir', href: '#' },
-      { title: 'Lleva “test” a Create', why: 'Ponle un título real y crea el borrador.', cta: 'Abrir', href: '#' },
-      { title: 'Vincula 3 contenidos sueltos', why: 'Pueden cubrir topics que hoy cuentan como vacíos.', cta: 'Vincular', href: '#' }
+      { title: 'Discover opportunities with AI', why: 'For the 10 empty topics, starting with the 5 high-priority ones.', cta: 'Discover', href: '#' },
+      { title: 'Take “test” to Create', why: 'Give it a real title and create the draft.', cta: 'Open', href: '#' },
+      { title: 'Link 3 unlinked content items', why: 'They may cover topics that currently count as empty.', cta: 'Link', href: '#' }
     ].map(function (x, i) {
       return Object.assign({}, x, {
         n: String(i + 1),
@@ -250,11 +250,11 @@ class Component extends DCLogic {
       var has = opps > 0;
       return {
         name: name, cluster: cluster, has: has,
-        oppLine: has ? ' · 1 oportunidad: “test” (Guide · EN)' : '',
-        prio: prio === 'H' ? 'Alta' : 'Media',
+        oppLine: has ? ' · 1 opportunity: “test” (Guide · EN)' : '',
+        prio: prio === 'H' ? 'High' : 'Medium',
         prioChip: prio === 'H' ? 'chip accent' : 'chip neutral',
-        stages: has ? [stage('Oportunidad', 'done'), stage('Contenido', 'next'), stage('Publicado', 'todo')] : [stage('Oportunidad', 'next'), stage('Contenido', 'todo'), stage('Publicado', 'todo')],
-        cta: has ? 'Crear contenido' : 'Añadir oportunidad',
+        stages: has ? [stage('Opportunity', 'done'), stage('Content', 'next'), stage('Published', 'todo')] : [stage('Opportunity', 'next'), stage('Content', 'todo'), stage('Published', 'todo')],
+        cta: has ? 'Create content' : 'Add opportunity',
         btn: has ? 'btn btn-sm btn-primary' : (prio === 'H' ? 'btn btn-sm' : 'btn btn-sm')
       };
     }
@@ -282,13 +282,13 @@ class Component extends DCLogic {
       var covered = p.rows.filter(function (r) { return r.has; }).length;
       var rows = gapsOnly ? p.rows.filter(function (r) { return !r.has; }) : p.rows;
       shown += rows.length;
-      return { name: p.name, rows: rows, cov: covered + ' / ' + p.rows.length + ' topics con oportunidad' };
+      return { name: p.name, rows: rows, cov: covered + ' / ' + p.rows.length + ' topics with an opportunity' };
     });
     var on = 'background:#FFFFFF;color:#17171C;box-shadow:0 1px 2px rgba(0,0,0,.08)';
     var off = 'background:transparent;color:#5E5D66';
     return {
       steps: steps, funnel: funnel, actions: actions, pillars: pillars,
-      showing: gapsOnly ? shown + ' topics sin oportunidades, alta prioridad primero.' : 'Los 11 topics de la estrategia, alta prioridad primero dentro de cada pilar.',
+      showing: gapsOnly ? shown + ' topics without opportunities, high priority first.' : 'All 11 strategy topics, high priority first within each pillar.',
       segGaps: gapsOnly ? on : off,
       segAll: gapsOnly ? off : on,
       showGaps: function () { self.setState({ gapsOnly: true }); },
