@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Context · Content OS</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F5F1;font-family:'Geist',system-ui,sans-serif;color:#17171C}
+a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-feature-settings:"tnum"}
+.card{background:#FFFFFF;border:1px solid #E4E2DC;border-radius:14px}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5E5D66}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 14px;border-radius:9px;border:1px solid #D9D6CE;background:#FFFFFF;color:#17171C;font:500 13px 'Geist',system-ui,sans-serif;cursor:pointer;white-space:nowrap;box-sizing:border-box}
+.btn:hover{background:#F1EFEA;color:#17171C}
+.btn-primary{background:#3730A3;border-color:#3730A3;color:#FFFFFF}
+.btn-primary:hover{background:#2B2585;color:#FFFFFF}
+.btn-sm{height:32px;padding:0 12px;font-size:12px}
+.chip{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 9px;border-radius:999px;font-size:12px;font-weight:500;white-space:nowrap}
+.ok{background:#E6F2EA;color:#14532D}
+.warn{background:#FCEFDD;color:#8A3F04}
+.neutral{background:#EFEDE8;color:#3F3E46}
+.accent{background:#ECEBFB;color:#3730A3}
+.bar{height:6px;border-radius:99px;background:#ECEAE4;overflow:hidden}
+.fill{height:100%;border-radius:99px;background:#3730A3}
+.navlink{display:flex;align-items:center;gap:10px;height:36px;padding:0 10px;border-radius:8px;font-size:13px;color:#3F3E46}
+.navlink:hover{background:#ECEAE4;color:#17171C}
+.step{display:flex;gap:12px;padding:10px;border-radius:10px;color:#17171C}
+.step:hover{background:#ECEAE4;color:#17171C}
+.row{display:grid;grid-template-columns:220px 130px minmax(0,1fr) 180px;gap:16px;align-items:center;padding:14px 20px;border-top:1px solid #EFEDE8;font-size:13px}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1880px; display: flex; background: #F6F5F1; overflow: hidden">
+
+<nav aria-label="Principal" style="width: 256px; flex-shrink: 0; box-sizing: border-box; padding: 24px 16px; border-right: 1px solid #E4E2DC; background: #FBFAF7; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 10px">
+<div style="width: 28px; height: 28px; border-radius: 8px; background: #3730A3; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">C</div>
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 600; font-size: 14px">Content OS</span>
+<span style="font-size: 12px; color: #5E5D66">ArchLife</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div class="eyebrow" style="padding: 0 10px 6px">Plan · tu recorrido</div>
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="3">
+<a class="step" href="{{s.href}}" style="{{s.style}}">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 4px">
+<div style="{{s.dot}}">{{s.n}}</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 3px; min-width: 0; flex-grow: 1">
+<span style="font-size: 13px; font-weight: 600">{{s.name}}</span>
+<span style="font-size: 12px; color: #5E5D66">{{s.meta}}</span>
+<div class="bar" style="height: 4px; margin-top: 4px"><div class="fill" style="{{s.bar}}"></div></div>
+</div>
+</a>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div class="eyebrow" style="padding: 0 10px 6px">Create</div>
+<a class="navlink" href="#">Content</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div class="eyebrow" style="padding: 0 10px 6px">Measure</div>
+<a class="navlink" href="#">Performance</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div class="eyebrow" style="padding: 0 10px 6px">Setup</div>
+<a class="navlink" href="#">Data sources</a>
+</div>
+</nav>
+
+<main style="flex-grow: 1; min-width: 0; box-sizing: border-box; padding: 32px 48px 48px; display: flex; flex-direction: column; gap: 28px">
+
+<header style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; color: #5E5D66">Plan / Paso 1 de 3</span>
+<div style="display: flex; align-items: center; gap: 12px">
+<h1 style="margin: 0; font-size: 30px; font-weight: 600; letter-spacing: -0.02em">Context</h1>
+<span class="chip ok">Aprobado</span>
+<span class="chip neutral mono">v6</span>
+</div>
+<p style="margin: 0; font-size: 14px; color: #5E5D66; max-width: 620px">Lo que Content OS sabe de tu negocio. Todo lo demás —estrategia, oportunidades, contenido— se genera a partir de aquí.</p>
+</div>
+<div style="display: flex; gap: 8px">
+<button class="btn" type="button">Historial</button>
+<button class="btn" type="button">Ver contexto completo</button>
+<button class="btn btn-primary" type="button">Editar contexto</button>
+</div>
+</header>
+
+<section aria-label="Resumen" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+
+<div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: center; gap: 8px"><span class="chip neutral mono">01</span><span class="eyebrow">Dónde estás</span></div>
+<div style="display: flex; align-items: center; gap: 18px">
+<svg width="84" height="84" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="34" fill="none" stroke="#ECEAE4" stroke-width="10"></circle><circle cx="42" cy="42" r="34" fill="none" stroke="#3730A3" stroke-width="10" stroke-linecap="round" stroke-dasharray="164.5 213.6" transform="rotate(-90 42 42)"></circle></svg>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span class="mono" style="font-size: 40px; font-weight: 600; letter-spacing: -0.03em; line-height: 1">77%</span>
+<span style="font-size: 13px; color: #5E5D66">44 de 57 inputs completos</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{areas}}" as="a" hint-placeholder-count="4">
+<div style="display: grid; grid-template-columns: 76px minmax(0, 1fr) 44px; gap: 10px; align-items: center; font-size: 13px">
+<span>{{a.name}}</span>
+<div class="bar"><div class="fill" style="{{a.bar}}"></div></div>
+<span class="mono" style="{{a.pctStyle}}">{{a.pct}}%</span>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 8px"><span class="chip neutral mono">02</span><span class="eyebrow">Hacia dónde vas</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 18px; font-weight: 600">Contexto completo y respaldado</span>
+<span style="font-size: 13px; color: #5E5D66">100% de inputs · 8 de 8 fuentes de verdad · estrategia al día</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #EFEDE8">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid #EFEDE8; font-size: 13px">
+<span>Fuentes de verdad</span><span class="mono" style="color: #8A3F04; font-weight: 600">0 / 8</span>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid #EFEDE8; font-size: 13px">
+<span>Inputs pendientes</span><span class="mono" style="font-weight: 600">13</span>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid #EFEDE8; font-size: 13px">
+<span>Capacidades sin caso de uso</span><span class="mono" style="font-weight: 600">2 / 3</span>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; font-size: 13px">
+<span>Strategy usa una versión antigua</span><span class="chip warn mono">v3 → v6</span>
+</div>
+</div>
+</div>
+
+<div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 14px; border-color: #C9C6F0">
+<div style="display: flex; align-items: center; gap: 8px"><span class="chip accent mono">03</span><span class="eyebrow" style="color: #3730A3">Qué hacer ahora</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{actions}}" as="x" hint-placeholder-count="4">
+<div style="{{x.box}}">
+<span class="mono" style="font-size: 12px; font-weight: 600; color: #3730A3; width: 16px; flex-shrink: 0; padding-top: 2px">{{x.n}}</span>
+<div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0">
+<span style="font-size: 13px; font-weight: 600">{{x.title}}</span>
+<span style="font-size: 12px; color: #5E5D66">{{x.why}}</span>
+</div>
+<a class="{{x.btn}}" href="{{x.href}}">{{x.cta}}</a>
+</div>
+</sc-for>
+</div>
+</div>
+
+</section>
+
+<section aria-labelledby="src-h" class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 id="src-h" style="margin: 0; font-size: 17px; font-weight: 600">Fuentes de verdad <span class="mono" style="color: #8A3F04; font-weight: 500">0 / 8</span></h2>
+<span style="font-size: 13px; color: #5E5D66">Documentos que respaldan el contexto. Sin ellos, todo se apoya en lo que escribiste a mano.</span>
+</div>
+<button class="btn btn-primary" type="button">Subir documentos</button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{sources}}" as="s" hint-placeholder-count="8">
+<div style="border: 1px dashed #CFCBC1; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px; background: #FBFAF7">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
+<span style="font-size: 13px; font-weight: 600">{{s.name}}</span>
+<span class="chip warn">Falta</span>
+</div>
+<span style="font-size: 12px; color: #5E5D66; line-height: 1.45; flex-grow: 1">{{s.desc}}</span>
+<button class="btn btn-sm" type="button" style="align-self: flex-start">Subir</button>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section aria-labelledby="sec-h" class="card" style="display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding: 24px 20px 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 id="sec-h" style="margin: 0; font-size: 17px; font-weight: 600">Estado por sección</h2>
+<span style="font-size: 13px; color: #5E5D66">Qué tienes en cada parte del contexto y qué le falta.</span>
+</div>
+<button class="btn" type="button">Analizar todo el contexto</button>
+</div>
+<div class="row eyebrow" style="padding-top: 10px; padding-bottom: 10px; background: #FBFAF7"><span>Sección</span><span>Estado</span><span>Lo que tienes · lo que falta</span><span style="text-align: right">Acción</span></div>
+<sc-for list="{{sections}}" as="r" hint-placeholder-count="7">
+<div class="row">
+<span style="font-weight: 600">{{r.name}}</span>
+<span><span class="{{r.chip}}">{{r.status}}</span></span>
+<span style="color: #3F3E46">{{r.detail}}</span>
+<span style="text-align: right"><button class="btn btn-sm" type="button">{{r.cta}}</button></span>
+</div>
+</sc-for>
+</section>
+
+<section aria-labelledby="bb-h" class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+<h2 id="bb-h" style="margin: 0; font-size: 17px; font-weight: 600">Business &amp; Brand · lo que ya está definido</h2>
+<span class="chip ok">Completo</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding-bottom: 18px; border-bottom: 1px solid #EFEDE8">
+<div style="display: flex; flex-direction: column; gap: 4px"><span class="eyebrow">Marca</span><span style="font-size: 14px">ArchLife</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span class="eyebrow">Web</span><span style="font-size: 14px">https://archlife.io</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span class="eyebrow">Tipo</span><span style="font-size: 14px">B2B SaaS</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span class="eyebrow">Categoría</span><span style="font-size: 14px">AI Architectural Visualization Software</span></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 32px">
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="eyebrow">Qué hace</span><span style="font-size: 14px; line-height: 1.5">ArchLife is a browser-based AI platform that allows architects and designers to transform sketches, plans, and 3D screenshots into photorealistic architectural renders and staged imagery without complex prompting.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="eyebrow">Diferenciación</span><span style="font-size: 14px; line-height: 1.5">Prompt-free workflow using existing CAD/BIM files or sketches, browser-based operation, specialized architectural presets including material swapping, staging, and lighting control.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="eyebrow">Modelo de negocio</span><span style="font-size: 14px; line-height: 1.5">Freemium subscription model with tiered monthly plans (Basic, Pro, Studio) and credit packages.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span class="eyebrow">Percepción buscada</span><span style="font-size: 14px; line-height: 1.5">A lightweight AI rendering assistant designed to complement existing modeling and visualization tools like SketchUp, Revit, Enscape, and Lumion.</span></div>
+</div>
+</section>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1880}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var active = 0;
+    var stepsData = [
+      { n: '1', name: 'Context', meta: '77% · Aprobado v6', pct: 77, href: 'Main.dc.html', tone: 'ok' },
+      { n: '2', name: 'Strategy', meta: '9% cubierto · desactualizada', pct: 9, href: 'Strategy.dc.html', tone: 'warn' },
+      { n: '3', name: 'Opportunities', meta: '1 de 11 topics', pct: 9, href: 'Opportunities.dc.html', tone: 'neutral' }
+    ];
+    var dotTone = { ok: 'background:#E6F2EA;color:#14532D', warn: 'background:#FCEFDD;color:#8A3F04', neutral: 'background:#EFEDE8;color:#3F3E46' };
+    var steps = stepsData.map(function (s, i) {
+      return Object.assign({}, s, {
+        style: i === active ? 'background:#FFFFFF;box-shadow:0 0 0 1px #C9C6F0' : '',
+        dot: 'width:24px;height:24px;border-radius:99px;display:flex;align-items:center;justify-content:center;font:600 12px Geist Mono,monospace;' + dotTone[s.tone],
+        bar: 'width:' + s.pct + '%;' + (s.tone === 'warn' ? 'background:#B45309' : '')
+      });
+    });
+    var areas = [['Business', 84], ['Market', 100], ['Website', 100], ['Sources', 0]].map(function (a) {
+      return { name: a[0], pct: a[1], bar: 'width:' + a[1] + '%', pctStyle: 'text-align:right;font-size:12px;' + (a[1] === 0 ? 'color:#8A3F04;font-weight:600' : 'color:#3F3E46') };
+    });
+    var actions = [
+      { title: 'Sube tus fuentes de verdad', why: 'Sources está al 0%: es el mayor hueco del contexto.', cta: 'Subir', href: '#' },
+      { title: 'Añade casos de uso', why: 'Virtual Staging y Drawing Enhancer no tienen ninguno.', cta: 'Añadir', href: '#' },
+      { title: 'Completa Business', why: '84%: quedan inputs sin responder.', cta: 'Completar', href: '#' },
+      { title: 'Lleva v6 a la estrategia', why: 'Strategy sigue basada en Context v3.', cta: 'Actualizar', href: 'Strategy.dc.html' }
+    ].map(function (x, i) {
+      return Object.assign({}, x, {
+        n: String(i + 1),
+        box: 'display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:10px;' + (i === 0 ? 'background:#F1F0FC' : 'background:#FBFAF7'),
+        btn: i === 0 ? 'btn btn-sm btn-primary' : 'btn btn-sm'
+      });
+    });
+    var sources = [
+      ['Business & strategy', 'Business plans, positioning, business model, objectives.'],
+      ['Brand & messaging', 'Brand guidelines, tone of voice, messaging frameworks.'],
+      ['Product & services', 'Product documentation, feature descriptions, pricing.'],
+      ['Customers & voice of customer', 'ICP, personas, interviews, surveys, customer feedback.'],
+      ['Market & competitors', 'Market research, competitor analysis, category reports.'],
+      ['Sales & marketing', 'Sales decks, pitch decks, brochures, campaigns.'],
+      ['Proof & evidence', 'Case studies, testimonials, customer results, benchmarks.'],
+      ['SEO & search research', 'Keyword research, SEO audits, SERP research.']
+    ].map(function (s) { return { name: s[0], desc: s[1] }; });
+    var chip = { done: 'chip ok', part: 'chip warn', todo: 'chip neutral' };
+    var sections = [
+      { name: 'Business & Brand', s: 'done', status: 'Completo', detail: 'Marca, categoría, modelo de negocio, propuesta de valor y diferenciación definidos.', cta: 'Ver' },
+      { name: 'Products & Services', s: 'part', status: 'Parcial', detail: '1 producto · 3 capacidades · 1 caso de uso. Faltan casos de uso en 2 capacidades.', cta: 'Añadir caso de uso' },
+      { name: 'Customers', s: 'part', status: '1 perfil', detail: 'Architects and Visualizers. Añade un perfil por cada tipo de cliente que sirvas.', cta: 'Añadir perfil' },
+      { name: 'Brand language', s: 'done', status: 'Definido', detail: 'Tono y vocabulario preferido definidos.', cta: 'Ver' },
+      { name: 'Customer language', s: 'todo', status: 'Sin analizar', detail: 'Sin fuentes de voz de cliente que lo respalden.', cta: 'Analizar sección' },
+      { name: 'Knowledge & Proof', s: 'todo', status: 'Sin analizar', detail: 'Sin casos de estudio ni testimonios subidos.', cta: 'Analizar sección' },
+      { name: 'Business goals', s: 'todo', status: 'Sin analizar', detail: 'Objetivos de negocio que guían la estrategia.', cta: 'Analizar sección' }
+    ].map(function (r) { return Object.assign({}, r, { chip: chip[r.s] }); });
+    return { steps: steps, areas: areas, actions: actions, sources: sources, sections: sections };
+  }
+}
+</script>
+</body>
+</html>

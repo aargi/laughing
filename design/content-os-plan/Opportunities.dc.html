@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Opportunities · Content OS</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F5F1;font-family:'Geist',system-ui,sans-serif;color:#17171C}
+a{color:#3730A3;text-decoration:none}a:hover{color:#1E1B6E}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-feature-settings:"tnum"}
+.card{background:#FFFFFF;border:1px solid #E4E2DC;border-radius:14px}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5E5D66}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 14px;border-radius:9px;border:1px solid #D9D6CE;background:#FFFFFF;color:#17171C;font:500 13px 'Geist',system-ui,sans-serif;cursor:pointer;white-space:nowrap;box-sizing:border-box}
+.btn:hover{background:#F1EFEA;color:#17171C}
+.btn-primary{background:#3730A3;border-color:#3730A3;color:#FFFFFF}
+.btn-primary:hover{background:#2B2585;color:#FFFFFF}
+.btn-sm{height:32px;padding:0 12px;font-size:12px}
+.chip{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 9px;border-radius:999px;font-size:12px;font-weight:500;white-space:nowrap}
+.ok{background:#E6F2EA;color:#14532D}
+.warn{background:#FCEFDD;color:#8A3F04}
+.neutral{background:#EFEDE8;color:#3F3E46}
+.accent{background:#ECEBFB;color:#3730A3}
+.bar{height:6px;border-radius:99px;background:#ECEAE4;overflow:hidden}
+.fill{height:100%;border-radius:99px;background:#3730A3}
+.navlink{display:flex;align-items:center;gap:10px;height:36px;padding:0 10px;border-radius:8px;font-size:13px;color:#3F3E46}
+.navlink:hover{background:#ECEAE4;color:#17171C}
+.step{display:flex;gap:12px;padding:10px;border-radius:10px;color:#17171C}
+.step:hover{background:#ECEAE4;color:#17171C}
+.trow{display:grid;grid-template-columns:minmax(0,1fr) 90px 250px 170px;gap:16px;align-items:center;padding:12px 20px;border-top:1px solid #F3F1EC;font-size:13px}
+.seg{height:32px;padding:0 12px;border:0;border-radius:7px;font:500 12px 'Geist',system-ui,sans-serif;cursor:pointer}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1880px; display: flex; background: #F6F5F1; overflow: hidden">
+
+<nav aria-label="Principal" style="width: 256px; flex-shrink: 0; box-sizing: border-box; padding: 24px 16px; border-right: 1px solid #E4E2DC; background: #FBFAF7; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 10px">
+<div style="width: 28px; height: 28px; border-radius: 8px; background: #3730A3; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px">C</div>
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 600; font-size: 14px">Content OS</span>
+<span style="font-size: 12px; color: #5E5D66">ArchLife</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div class="eyebrow" style="padding: 0 10px 6px">Plan · tu recorrido</div>
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="3">
+<a class="step" href="{{s.href}}" style="{{s.style}}">
+<div style="{{s.dot}}">{{s.n}}</div>
+<div style="display: flex; flex-direction: column; gap: 3px; min-width: 0; flex-grow: 1">
+<span style="font-size: 13px; font-weight: 600">{{s.name}}</span>
+<span style="font-size: 12px; color: #5E5D66">{{s.meta}}</span>
+<div class="bar" style="height: 4px; margin-top: 4px"><div class="fill" style="{{s.bar}}"></div></div>
+</div>
+</a>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div class="eyebrow" style="padding: 0 10px 6px">Create</div>
+<a class="navlink" href="#">Content</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div class="eyebrow" style="padding: 0 10px 6px">Measure</div>
+<a class="navlink" href="#">Performance</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<div class="eyebrow" style="padding: 0 10px 6px">Setup</div>
+<a class="navlink" href="#">Data sources</a>
+</div>
+</nav>
+
+<main style="flex-grow: 1; min-width: 0; box-sizing: border-box; padding: 32px 48px 48px; display: flex; flex-direction: column; gap: 24px">
+
+<header style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; color: #5E5D66">Plan / Paso 3 de 3</span>
+<div style="display: flex; align-items: center; gap: 12px">
+<h1 style="margin: 0; font-size: 30px; font-weight: 600; letter-spacing: -0.02em">Opportunities</h1>
+<span class="chip ok">Estrategia aprobada</span>
+</div>
+<p style="margin: 0; font-size: 14px; color: #5E5D66; max-width: 620px">Ideas concretas de contenido para cada topic. Aquí decides qué crear y por qué; los borradores viven en Create.</p>
+</div>
+<div style="display: flex; gap: 8px">
+<button class="btn" type="button">+ Añadir oportunidad</button>
+<button class="btn btn-primary" type="button">Descubrir con IA</button>
+</div>
+</header>
+
+<section aria-label="Embudo" class="card" style="padding: 20px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{funnel}}" as="f" hint-placeholder-count="4">
+<div style="{{f.box}}">
+<div style="display: flex; justify-content: space-between; align-items: center"><span class="eyebrow">{{f.label}}</span><span class="{{f.dropChip}}">{{f.drop}}</span></div>
+<div style="display: flex; align-items: baseline; gap: 8px"><span class="mono" style="font-size: 34px; font-weight: 600; letter-spacing: -0.02em; line-height: 1">{{f.v}}</span><span class="mono" style="font-size: 13px; color: #5E5D66">/ 11 · {{f.pct}}%</span></div>
+<div class="bar"><div class="fill" style="{{f.bar}}"></div></div>
+<span style="font-size: 12px; color: #5E5D66">{{f.hint}}</span>
+</div>
+</sc-for>
+</section>
+
+<section aria-label="Resumen" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+
+<div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 8px"><span class="chip neutral mono">01</span><span class="eyebrow">Dónde estás</span></div>
+<span style="font-size: 18px; font-weight: 600">1 oportunidad en backlog</span>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px; border-radius: 10px; background: #FBFAF7; border: 1px solid #EFEDE8">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 13px; font-weight: 600">test</span>
+<span style="font-size: 12px; color: #5E5D66">Sketch to Render · Guide · EN</span>
+</div>
+<span class="chip neutral">Backlog · sin contenido</span>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; padding-top: 4px"><span>Contenidos sin vincular a ninguna oportunidad</span><span class="mono" style="font-weight: 600">3</span></div>
+</div>
+
+<div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 8px"><span class="chip neutral mono">02</span><span class="eyebrow">Hacia dónde vas</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 18px; font-weight: 600">Cada topic con contenido publicado</span>
+<span style="font-size: 13px; color: #5E5D66">11 / 11 topics con al menos una oportunidad que llegue a publicarse</span>
+</div>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #EFEDE8">
+<div style="display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid #EFEDE8; font-size: 13px"><span>Topics de alta prioridad sin plan</span><span class="mono" style="color: #8A3F04; font-weight: 600">5</span></div>
+<div style="display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid #EFEDE8; font-size: 13px"><span>Topics de prioridad media sin plan</span><span class="mono" style="font-weight: 600">5</span></div>
+<div style="display: flex; justify-content: space-between; padding: 11px 0; font-size: 13px"><span>Oportunidades sin contenido</span><span class="mono" style="font-weight: 600">1</span></div>
+</div>
+</div>
+
+<div class="card" style="padding: 22px; display: flex; flex-direction: column; gap: 14px; border-color: #C9C6F0">
+<div style="display: flex; align-items: center; gap: 8px"><span class="chip accent mono">03</span><span class="eyebrow" style="color: #3730A3">Qué hacer ahora</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{actions}}" as="x" hint-placeholder-count="3">
+<div style="{{x.box}}">
+<span class="mono" style="font-size: 12px; font-weight: 600; color: #3730A3; width: 16px; flex-shrink: 0; padding-top: 2px">{{x.n}}</span>
+<div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0">
+<span style="font-size: 13px; font-weight: 600">{{x.title}}</span>
+<span style="font-size: 12px; color: #5E5D66">{{x.why}}</span>
+</div>
+<a class="{{x.btn}}" href="{{x.href}}">{{x.cta}}</a>
+</div>
+</sc-for>
+</div>
+<span style="font-size: 12px; color: #8A3F04">La estrategia se basa en Context v3; las sugerencias usarán Context v6. <a href="Strategy.dc.html" style="color: #8A3F04; text-decoration: underline">Actualizar estrategia</a></span>
+</div>
+
+</section>
+
+<section aria-labelledby="bl-h" class="card" style="display: flex; flex-direction: column">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding: 22px 20px 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 id="bl-h" style="margin: 0; font-size: 17px; font-weight: 600">Backlog por estrategia</h2>
+<span style="font-size: 13px; color: #5E5D66">{{showing}}</span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px">
+<div role="group" aria-label="Vista" style="display: flex; gap: 2px; padding: 3px; border-radius: 10px; background: #EFEDE8">
+<button class="seg" type="button" onClick="{{showGaps}}" style="{{segGaps}}">Solo huecos</button>
+<button class="seg" type="button" onClick="{{showAll}}" style="{{segAll}}">Todo</button>
+</div>
+<button class="btn btn-sm" type="button">Filtros</button>
+</div>
+</div>
+<div class="trow eyebrow" style="background: #FBFAF7; padding-top: 10px; padding-bottom: 10px"><span>Topic</span><span>Prioridad</span><span>Progreso · oportunidad → contenido → publicado</span><span style="text-align: right">Acción</span></div>
+<sc-for list="{{pillars}}" as="p" hint-placeholder-count="3">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-top: 1px solid #E4E2DC; background: #F8F7F3">
+<div style="display: flex; align-items: center; gap: 10px"><span class="eyebrow">Pilar</span><span style="font-size: 14px; font-weight: 600">{{p.name}}</span></div>
+<span class="mono" style="font-size: 12px; color: #5E5D66">{{p.cov}}</span>
+</div>
+<sc-for list="{{p.rows}}" as="r" hint-placeholder-count="3">
+<div class="trow">
+<div style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+<span style="font-weight: 600">{{r.name}}</span>
+<span style="font-size: 12px; color: #5E5D66">{{r.cluster}}{{r.oppLine}}</span>
+</div>
+<span class="{{r.prioChip}}" style="justify-self: start">{{r.prio}}</span>
+<div style="display: flex; align-items: center; gap: 6px">
+<sc-for list="{{r.stages}}" as="st" hint-placeholder-count="3">
+<div style="{{st.style}}">{{st.label}}</div>
+</sc-for>
+</div>
+<span style="text-align: right"><button class="{{r.btn}}" type="button">{{r.cta}}</button></span>
+</div>
+</sc-for>
+</sc-for>
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-top: 1px solid #E4E2DC; font-size: 13px">
+<span style="color: #3F3E46">3 contenidos no están vinculados a ninguna oportunidad.</span>
+<button class="btn btn-sm" type="button">Vincular contenidos</button>
+</div>
+</section>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1880}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { gapsOnly: false };
+  }
+  renderVals() {
+    var self = this;
+    var gapsOnly = this.state.gapsOnly;
+    var active = 2;
+    var stepsData = [
+      { n: '1', name: 'Context', meta: '77% · Aprobado v6', pct: 77, href: 'Main.dc.html', tone: 'ok' },
+      { n: '2', name: 'Strategy', meta: '9% cubierto · desactualizada', pct: 9, href: 'Strategy.dc.html', tone: 'warn' },
+      { n: '3', name: 'Opportunities', meta: '1 de 11 topics', pct: 9, href: 'Opportunities.dc.html', tone: 'neutral' }
+    ];
+    var dotTone = { ok: 'background:#E6F2EA;color:#14532D', warn: 'background:#FCEFDD;color:#8A3F04', neutral: 'background:#EFEDE8;color:#3F3E46' };
+    var steps = stepsData.map(function (s, i) {
+      return Object.assign({}, s, {
+        style: i === active ? 'background:#FFFFFF;box-shadow:0 0 0 1px #C9C6F0' : '',
+        dot: 'width:24px;height:24px;flex-shrink:0;border-radius:99px;display:flex;align-items:center;justify-content:center;font:600 12px Geist Mono,monospace;' + dotTone[s.tone],
+        bar: 'width:' + s.pct + '%;' + (s.tone === 'warn' ? 'background:#B45309' : '')
+      });
+    });
+    var funnel = [
+      { label: 'Topics', v: 11, drop: '', hint: 'Definidos en la estrategia' },
+      { label: 'Con oportunidad', v: 1, drop: '−10', hint: '10 topics sin idea de contenido' },
+      { label: 'Con contenido', v: 0, drop: '−1', hint: '“test” aún no tiene borrador' },
+      { label: 'Publicado', v: 0, drop: '', hint: 'Nada publicado todavía' }
+    ].map(function (f, i) {
+      var pct = Math.round(f.v / 11 * 100);
+      return Object.assign({}, f, {
+        pct: pct,
+        bar: 'width:' + pct + '%',
+        dropChip: f.drop ? 'chip warn mono' : '',
+        box: 'display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:10px;' + (i === 1 ? 'background:#F1F0FC' : 'background:#FBFAF7')
+      });
+    });
+    var actions = [
+      { title: 'Descubre oportunidades con IA', why: 'Para los 10 topics vacíos, empezando por los 5 de alta prioridad.', cta: 'Descubrir', href: '#' },
+      { title: 'Lleva “test” a Create', why: 'Ponle un título real y crea el borrador.', cta: 'Abrir', href: '#' },
+      { title: 'Vincula 3 contenidos sueltos', why: 'Pueden cubrir topics que hoy cuentan como vacíos.', cta: 'Vincular', href: '#' }
+    ].map(function (x, i) {
+      return Object.assign({}, x, {
+        n: String(i + 1),
+        box: 'display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:10px;' + (i === 0 ? 'background:#F1F0FC' : 'background:#FBFAF7'),
+        btn: i === 0 ? 'btn btn-sm btn-primary' : 'btn btn-sm'
+      });
+    });
+    function stage(label, state) {
+      var base = 'display:flex;align-items:center;height:26px;padding:0 10px;border-radius:99px;font-size:12px;font-weight:500;white-space:nowrap;box-sizing:border-box;';
+      var look = state === 'done' ? 'background:#3730A3;color:#FFFFFF' : state === 'next' ? 'background:#FFFFFF;color:#8A3F04;border:1.5px solid #D98B3A' : 'background:#FFFFFF;color:#8E8A80;border:1px dashed #CFCBC1';
+      return { label: label, style: base + look };
+    }
+    function row(name, cluster, prio, opps) {
+      var has = opps > 0;
+      return {
+        name: name, cluster: cluster, has: has,
+        oppLine: has ? ' · 1 oportunidad: “test” (Guide · EN)' : '',
+        prio: prio === 'H' ? 'Alta' : 'Media',
+        prioChip: prio === 'H' ? 'chip accent' : 'chip neutral',
+        stages: has ? [stage('Oportunidad', 'done'), stage('Contenido', 'next'), stage('Publicado', 'todo')] : [stage('Oportunidad', 'next'), stage('Contenido', 'todo'), stage('Publicado', 'todo')],
+        cta: has ? 'Crear contenido' : 'Añadir oportunidad',
+        btn: has ? 'btn btn-sm btn-primary' : (prio === 'H' ? 'btn btn-sm' : 'btn btn-sm')
+      };
+    }
+    var data = [
+      { name: 'AI Architectural Rendering', rows: [
+        row('Sketch to Render', 'Photorealistic AI Rendering', 'H', 1),
+        row('Render Enhancement', 'Photorealistic AI Rendering', 'H', 0),
+        row('Interior Virtual Staging', 'Virtual Staging and Space Optimization', 'H', 0),
+        row('Material and Lighting Customization', 'Photorealistic AI Rendering', 'M', 0),
+        row('Architectural Decluttering and Element Removal', 'Virtual Staging and Space Optimization', 'M', 0)
+      ] },
+      { name: 'Architectural Visualization Workflows', rows: [
+        row('SketchUp Model Visualization', 'CAD and BIM Modeling Pipeline Integration', 'H', 0),
+        row('Floor Plan Rendering and Variations', '2D Drawing and Plan Transformation', 'H', 0),
+        row('AI Acceleration for Traditional Rendering Suites', 'CAD and BIM Modeling Pipeline Integration', 'M', 0),
+        row('2D Technical Drawing Enhancement', '2D Drawing and Plan Transformation', 'M', 0)
+      ] },
+      { name: 'Architectural Presentation & Communication', rows: [
+        row('Rapid Concept Iteration in Client Reviews', 'Client Concept Communication', 'H', 0),
+        row('Communicating Technical Designs to Non-Technical Stakeholders', 'Client Concept Communication', 'M', 0)
+      ] }
+    ];
+    var shown = 0;
+    var pillars = data.map(function (p) {
+      var covered = p.rows.filter(function (r) { return r.has; }).length;
+      var rows = gapsOnly ? p.rows.filter(function (r) { return !r.has; }) : p.rows;
+      shown += rows.length;
+      return { name: p.name, rows: rows, cov: covered + ' / ' + p.rows.length + ' topics con oportunidad' };
+    });
+    var on = 'background:#FFFFFF;color:#17171C;box-shadow:0 1px 2px rgba(0,0,0,.08)';
+    var off = 'background:transparent;color:#5E5D66';
+    return {
+      steps: steps, funnel: funnel, actions: actions, pillars: pillars,
+      showing: gapsOnly ? shown + ' topics sin oportunidades, alta prioridad primero.' : 'Los 11 topics de la estrategia, alta prioridad primero dentro de cada pilar.',
+      segGaps: gapsOnly ? on : off,
+      segAll: gapsOnly ? off : on,
+      showGaps: function () { self.setState({ gapsOnly: true }); },
+      showAll: function () { self.setState({ gapsOnly: false }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
