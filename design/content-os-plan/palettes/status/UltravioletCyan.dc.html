@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Palette 07 · Ultraviolet Cyan</title>
+<script src="../../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Geist',system-ui,sans-serif}
+.mono{font-family:'Geist Mono',ui-monospace,monospace}
+</style>
+</helmet>
+<div style="{{rootStyle}}">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; height: 176px; box-sizing: border-box; padding: 40px 48px 28px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span class="mono" style="{{labelStyle}}">{{number}}</span>
+<h1 style="margin: 0; font-size: 44px; font-weight: 600; letter-spacing: -0.03em; line-height: 1">{{name}}</h1>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px; align-items: flex-end">
+<p style="{{descStyle}}">{{desc}}</p>
+<div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end">
+<sc-for list="{{tags}}" as="t" hint-placeholder-count="4">
+<span style="{{t.style}}">{{t.label}}</span>
+</sc-for>
+</div>
+</div>
+</div>
+<div style="display: flex; gap: 12px; height: 724px; padding: 0 12px 12px; box-sizing: border-box">
+<sc-for list="{{groups}}" as="g" hint-placeholder-count="3">
+<div style="{{g.style}}">
+<div style="{{g.labelStyle}}">{{g.label}}</div>
+<div style="display: flex; flex-grow: 1; border-radius: 14px; overflow: hidden">
+<sc-for list="{{g.swatches}}" as="s" hint-placeholder-count="3">
+<div style="{{s.style}}">
+<span style="{{s.roleStyle}}">{{s.role}}</span>
+<span style="font-size: 20px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15">{{s.name}}</span>
+<span class="mono" style="font-size: 18px; font-weight: 500">{{s.hex}}</span>
+<span style="{{s.useStyle}}">{{s.use}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var P = {
+      number: 'OPTION 07 · TRAFFIC LIGHT',
+      name: 'Ultraviolet Cyan',
+      desc: 'Ultraviolet for the brand and electric cyan for AI: very AI-forward. The status trio is the only warm-and-green corner of the system.',
+      tags: ['AI-forward', 'Energetic', 'Modern', 'Status-first'],
+      brand: [
+        ['Primary / Ink', 'Plum Black', '#16121F', 1.1],
+        ['Brand accent', 'Ultraviolet', '#6D4AFF', 1.3],
+        ['AI accent', 'Electric Cyan', '#13C2D8', 1.3]
+      ],
+      status: [
+        ['Error', 'Rose Red', '#F0445B', 'Errors · failing'],
+        ['To do', 'Tangerine', '#FF8A1F', 'Missing · to do · improve'],
+        ['Done', 'Mint Green', '#22B573', 'Success · done']
+      ],
+      neutral: [
+        ['Background', 'Lavender Mist', '#F7F5FC'],
+        ['Card', 'White', '#FFFFFF'],
+        ['Secondary text', 'Grey Violet', '#6A6580'],
+        ['Border', 'Haze', '#E4DFF0']
+      ]
+    };
+    return build(P);
+    function lum(hex) {
+      var c = [1, 3, 5].map(function (i) { var v = parseInt(hex.substr(i, 2), 16) / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+      return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+    }
+    function build(P) {
+      var ink = P.brand[0][2], bg = P.neutral[0][2], muted = P.neutral[2][2], border = P.neutral[3][2];
+      function sw(c, weight, use) {
+        var dark = lum(c[2]) < 0.3;
+        var edge = lum(c[2]) > 0.85 ? 'box-shadow:inset 0 0 0 1px ' + border + ';' : '';
+        return {
+          role: c[0], name: c[1], hex: c[2], use: use || '',
+          style: 'flex:' + weight + ' 1 0;min-width:0;box-sizing:border-box;padding:24px 20px;display:flex;flex-direction:column;justify-content:flex-end;gap:7px;background:' + c[2] + ';color:' + (dark ? '#FFFFFF' : ink) + ';' + edge,
+          roleStyle: 'font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:' + (dark ? '0.8' : '0.72'),
+          useStyle: use ? 'font-size:13px;line-height:1.35;margin-top:6px;padding-top:10px;border-top:1px solid ' + (dark ? 'rgba(255,255,255,.35)' : 'rgba(0,0,0,.2)') : 'display:none'
+        };
+      }
+      function group(label, weight, swatches, strong) {
+        return {
+          label: label, swatches: swatches,
+          style: 'flex:' + weight + ' 1 0;min-width:0;display:flex;flex-direction:column;gap:10px',
+          labelStyle: 'height:26px;display:flex;align-items:center;padding:0 12px;border-radius:99px;align-self:flex-start;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;' + (strong ? 'background:' + ink + ';color:#FFFFFF' : 'color:' + muted)
+        };
+      }
+      var groups = [
+        group('Brand & AI', 3.7, P.brand.map(function (c) { return sw(c, c[3]); })),
+        group('Status · traffic light', 3.9, P.status.map(function (c) { return sw(c, 1, c[3]); }), true),
+        group('Neutrals', 3.2, P.neutral.map(function (c) { return sw(c, 1); }))
+      ];
+      return {
+        number: P.number, name: P.name, desc: P.desc, groups: groups,
+        tags: P.tags.map(function (t) { return { label: t, style: 'display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:99px;font-size:13px;font-weight:500;background:#FFFFFF;border:1px solid ' + border + ';color:' + ink }; }),
+        rootStyle: 'width:1440px;height:900px;overflow:hidden;display:flex;flex-direction:column;background:' + bg + ';color:' + ink + ';font-family:Geist,system-ui,sans-serif',
+        labelStyle: 'font-size:13px;font-weight:600;letter-spacing:.1em;color:' + muted,
+        descStyle: 'margin:0;font-size:16px;line-height:1.5;text-align:right;color:' + muted
+      };
+    }
+  }
+}
+</script>
+</body>
+</html>
